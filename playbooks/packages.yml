@@ -44,19 +44,17 @@
         name: python3.11
         state: present
 
-    - name: Create Spark directory
-      file:
-        path: "/opt/spark"
-        state: directory
-
     - name: Download Spark files
       get_url:
         url: "https://dlcdn.apache.org/spark/spark-3.5.0/spark-3.5.0-bin-hadoop3.tgz"
-        dest: "/opt/spark"
+        dest: "/opt"
         timeout: 300
 
     - name: Extract Spark files
       unarchive:
-        src: "/opt/spark/spark-3.5.0-bin-hadoop3.tgz"
-        dest: "/opt/spark"
+        src: "/opt/spark-3.5.0-bin-hadoop3.tgz"
+        dest: "/opt/"
         remote_src: yes
+
+    - name: Rename Spark directory using mv command
+      command: mv /opt/spark-3.5.0-bin-hadoop3 /opt/spark
