@@ -61,6 +61,7 @@
         path: ~/.profile
         line: "{{ item }}"
         insertafter: EOF
+        state: present
       loop:
         - 'export SPARK_HOME=/opt/spark-3.5.0-bin-hadoop3'
         - 'export PATH=\$PATH:\$SPARK_HOME/bin:\$SPARK_HOME/sbin'
