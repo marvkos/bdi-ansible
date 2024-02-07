@@ -28,3 +28,34 @@
       apt:
         name: git
         state: present
+
+    - name: Install software-properties-common (required for adding PPAs)
+      apt:
+        name: software-properties-common
+        state: present
+
+    - name: Add deadsnakes PPA for Python 3.11
+      apt_repository:
+        repo: ppa:deadsnakes/ppa
+        state: present
+
+    - name: Install Python 3.11
+      apt:
+        name: python3.11
+        state: present
+
+    - name: Create Spark directory
+      file:
+        path: "/opt/spark"
+        state: directory
+
+    - name: Download Spark files
+      get_url:
+        url: "https://dlcdn.apache.org/spark/spark-3.5.0/spark-3.5.0-bin-hadoop3.tgz"
+        dest: "/opt/spark"
+
+    - name: Extract Spark files
+      unarchive:
+        src: "/opt/spark/spark-3.5.0-bin-hadoop3.tgz"
+        dest: "/opt/spark"
+        remote_src: no
