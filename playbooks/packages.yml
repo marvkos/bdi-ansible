@@ -56,5 +56,16 @@
         dest: "/opt/"
         remote_src: yes
 
-    - name: Rename Spark directory using mv command
-      command: mv /opt/spark-3.5.0-bin-hadoop3 /opt/spark
+    - name: Set environment variables in .profile
+      lineinfile:
+        path: ~/.profile
+        line: "{{ item }}"
+        insertafter: EOF
+      loop:
+        - 'export SPARK_HOME=/opt/spark-3.5.0-bin-hadoop3'
+        - 'export PATH=\$PATH:\$SPARK_HOME/bin:\$SPARK_HOME/sbin'
+        - 'export PYSPARK_PYTHON=/usr/bin/python3.11'
+
+    - name: Reload .profile file
+      shell: |
+        . ~/.profile
