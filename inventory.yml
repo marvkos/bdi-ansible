@@ -1,0 +1,14 @@
+---
+all:
+  hosts:
+    sparkmaster1:
+      ansible_host: 172.29.17.134
+    sparkworker1:
+      ansible_host: 172.29.17.135
+  children:
+    sparkmaster:
+      hosts:
+        sparkmaster1:
+    sparkworkers:
+      hosts:
+        sparkworker1:
