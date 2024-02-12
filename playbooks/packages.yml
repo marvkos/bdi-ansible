@@ -59,14 +59,13 @@
     - name: Set environment variables in .profile
       lineinfile:
         path: ~/.profile
-        line: "{{ item }}"
+        line: """
+              export SPARK_HOME=/opt/spark-3.5.0-bin-hadoop3
+              export PATH=\$PATH:\$SPARK_HOME/bin:\$SPARK_HOME/sbin
+              export PYSPARK_PYTHON=/usr/bin/python3.11'
+              """
         insertafter: EOF
         state: present
-      loop:
-        - 'export SPARK_HOME=/opt/spark-3.5.0-bin-hadoop3'
-        - 'export PATH=\$PATH:\$SPARK_HOME/bin:\$SPARK_HOME/sbin'
-        - 'export PYSPARK_PYTHON=/usr/bin/python3.11'
 
     - name: Reload .profile file
-      shell: |
-        . ~/.profile
+      shell: source ~/.profile
