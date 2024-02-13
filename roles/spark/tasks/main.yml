@@ -1,5 +1,5 @@
 - name: Check Spark files existence
-  ansible.builtin.stat:
+  stat:
     path: /opt/spark
   register: spark_check
 
@@ -21,10 +21,17 @@
   command: mv /opt/spark-3.5.0-bin-hadoop3 /opt/spark
   when: not spark_check.stat.exists
 
-- name: Add SPARK_HOME to /etc/profile
+- name: Add Spark environment to /etc/profile
   lineinfile:
     dest: /etc/profile
     state: present
     regexp: "^export {{ item.key }}="
     line: "export {{ item.key }}={{ item.value }}"
   with_items: "{{ spark_environment }}"
+
+- name: Add SPARK_LOCAL_IP to /etc/profile
+  lineinfile:
+    dest: /etc/profile
+    state: present
+    regexp: "^export SPARK_LOCAL_IP="
+    line: "export SPARK_LOCAL_IP={{ ansible_default_ipv4.address|default(ansible_all_ipv4_addresses[0]) }}"
