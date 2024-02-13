@@ -21,10 +21,10 @@
   command: mv /opt/spark-3.5.0-bin-hadoop3 /opt/spark
   when: not spark_check.stat.exists
 
-- name: Add SPARK_HOME to /etc/environment
+- name: Add SPARK_HOME to /etc/profile
   lineinfile:
-    dest: /etc/environment
+    dest: /etc/profile
     state: present
-    regexp: ^SPARK_HOME=
-    line: SPARK_HOME=/opt/spark
-  
+    regexp: "^export {{ item.key }}="
+    line: "export {{ item.key }}={{ item.value }}"
+  with_items: "{{ spark_environment }}"

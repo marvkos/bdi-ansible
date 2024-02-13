@@ -1,0 +1,9 @@
+spark_environment:
+  - key: SPARK_HOME
+    value: /opt/spark
+  - key: PATH
+    value: $PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin
+  - key: PYSPARK_PYTHON
+    value: /usr/bin/python3.11
+  - key: PYSPARK_DRIVER_PYTHON
+    value: /usr/bin/python3.11
