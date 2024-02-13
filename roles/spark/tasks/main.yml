@@ -29,9 +29,9 @@
     line: "export {{ item.key }}={{ item.value }}"
   with_items: "{{ spark_environment }}"
 
-- name: Add SPARK_LOCAL_IP to /etc/profile
+- name: Add SPARK_MASTER_HOST to /etc/profile
   lineinfile:
     dest: /etc/profile
     state: present
-    regexp: "^export SPARK_LOCAL_IP="
-    line: "export SPARK_LOCAL_IP={{ ansible_default_ipv4.address|default(ansible_all_ipv4_addresses[0]) }}"
+    regexp: "^export SPARK_MASTER_HOST="
+    line: "export SPARK_MASTER_HOST={{ ansible_default_ipv4.address|default(ansible_all_ipv4_addresses[0]) }}"
