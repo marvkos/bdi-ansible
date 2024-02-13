@@ -39,26 +39,6 @@
     name: python3.11-distutils
     state: present
 
-- name: Set Python 3.8 as alternative for python3
-  alternatives:
-    link: /usr/bin/python3
-    name: python3
-    path: /usr/bin/python3.8
-    priority: 1
-    state: present
-
-- name: Set Python 3.11 as default for python3
-  alternatives:
-    link: /usr/bin/python3
-    name: python3
-    path: /usr/bin/python3.11
-    priority: 2
-
-- name: Install python3-apt package
-  apt:
-    name: python3-apt
-    state: fixed
-
 - name: Check if pip is installed in .local/bin
   ansible.builtin.stat:
     path: ~/.local/bin/pip
@@ -67,5 +47,5 @@
 - name: Ensure pip for Python 3.11 is installed
   script: 
     src: https://bootstrap.pypa.io/get-pip.py
-    executable: python3
+    executable: python3.11
   when: not pip_check.stat.exists
