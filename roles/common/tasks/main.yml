@@ -51,7 +51,7 @@
   when: not pip_check.stat.exists
 
 - name: Ensure pip for Python 3.11 is installed
-  script: /tmp/get-pip.py
+  shell: /tmp/get-pip.py
   args:
     executable: python3.11
   when: not pip_check.stat.exists
