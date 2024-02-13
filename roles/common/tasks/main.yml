@@ -51,7 +51,5 @@
   when: not pip_check.stat.exists
 
 - name: Ensure pip for Python 3.11 is installed
-  shell: /tmp/get-pip.py
-  args:
-    executable: python3.11
+  command: curl -sS https://bootstrap.pypa.io/get-pip.py | python3.11
   when: not pip_check.stat.exists
