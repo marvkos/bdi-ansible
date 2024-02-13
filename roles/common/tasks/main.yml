@@ -39,7 +39,7 @@
     name: python3.11-distutils
     state: present
 
-- name: Check if pip is installed in .local/bin
+- name: Check if pip is installed in /usr/local/bin
   ansible.builtin.stat:
     path: /usr/local/bin/pip
   register: pip_check
