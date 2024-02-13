@@ -1,5 +1,6 @@
 ---
 - name: Test Ansible configs
   hosts: basics
+  become: yes
   roles:
     - common
