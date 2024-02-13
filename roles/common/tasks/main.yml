@@ -44,8 +44,14 @@
     path: ~/.local/bin/pip
   register: pip_check
 
+- name: Download pip install script
+  get_url:
+    url: https://bootstrap.pypa.io/get-pip.py
+    dest: /tmp/get-pip.py
+  when: not pip_check.stat.exists
+
 - name: Ensure pip for Python 3.11 is installed
-  script: 
-    src: https://bootstrap.pypa.io/get-pip.py
-    executable: python3.11
+  script: /tmp/get-pip.py
+    args:
+      executable: python3.11
   when: not pip_check.stat.exists
