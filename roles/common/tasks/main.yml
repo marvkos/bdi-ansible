@@ -41,7 +41,7 @@
 
 - name: Check if pip is installed in .local/bin
   ansible.builtin.stat:
-    path: ~/.local/bin/pip
+    path: /usr/local/bin/pip
   register: pip_check
 
 - name: Download pip install script
