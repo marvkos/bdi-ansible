@@ -39,7 +39,7 @@
     name: python3.11-distutils
     state: present
 
-- name: Set Python 3.11 as default for python3
+- name: Set Python 3.8 as alternative for python3
   alternatives:
     link: /usr/bin/python3
     name: python3
@@ -54,15 +54,10 @@
     path: /usr/bin/python3.11
     priority: 2
 
-- name: Remove python3-apt package
-  apt:
-    name: python3-apt
-    state: absent
-
 - name: Install python3-apt package
   apt:
     name: python3-apt
-    state: present
+    state: fixed
 
 - name: Check if pip is installed in .local/bin
   ansible.builtin.stat:
