@@ -5,6 +5,10 @@ all:
       ansible_host: 172.29.17.134
     sparkworker1:
       ansible_host: 172.29.17.135
+    jupyterhub:
+      ansible_host: 172.29.17.136
+    basicvm:
+      ansible_host: 172.29.17.137
   children:
     sparkmaster:
       hosts:
@@ -12,3 +16,9 @@ all:
     sparkworkers:
       hosts:
         sparkworker1:
+    jupyterhubs:
+      hosts:
+        jupyterhub:
+    basics:
+      hosts:
+        basicvm:

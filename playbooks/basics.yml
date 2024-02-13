@@ -1,0 +1,5 @@
+---
+- name: Test Ansible configs
+  hosts: basics
+  roles:
+    - common
