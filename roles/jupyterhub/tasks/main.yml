@@ -1,3 +1,10 @@
+- name: Add SPARK_LOCAL_IP to /etc/profile
+  lineinfile:
+    dest: /etc/profile
+    state: present
+    regexp: "^export SPARK_LOCAL_IP="
+    line: "export SPARK_LOCAL_IP={{ ansible_default_ipv4.address|default(ansible_all_ipv4_addresses[0]) }}"
+
 - name: Install Jupyter pip packages
   pip:
     name:
@@ -51,9 +58,9 @@
       - scipy
     state: present
 
-- name: Add SPARK_LOCAL_IP to /etc/profile
-  lineinfile:
-    dest: /etc/profile
-    state: present
-    regexp: "^export SPARK_LOCAL_IP="
-    line: "export SPARK_LOCAL_IP={{ ansible_default_ipv4.address|default(ansible_all_ipv4_addresses[0]) }}"
+- name: Add student users
+  user:
+    name: "{{ item.name }}"
+    password: "{{ item.password }}"
+    group: students
+  with_items: "{{ student_users }}"
