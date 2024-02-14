@@ -32,6 +32,12 @@
     name: nodejs
     state: present
 
+- name: Install configurable-http-proxy npm package
+  npm:
+    name: configurable-http-proxy
+    global: yes
+    state: present
+
 - name: Install data science pip packages
   pip:
     name:
