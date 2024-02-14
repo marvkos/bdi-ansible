@@ -4,6 +4,6 @@ c = get_config()
 
 c.Authenticator.whitelist = {
 {%- for user in student_users -%}
-'{{ user }}',
+'{{ user.name }}',
 {%- endfor -%}
 'bdiuser' }
