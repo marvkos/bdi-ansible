@@ -69,13 +69,6 @@
     enabled: yes
     state: started
 
-- name: Run supervisord as root
-  lineinfile:
-    dest: /etc/supervisor/supervisord.conf
-    state: present
-    line: "user={{ supervisord_user }}"
-    insertafter: "^\[supervisord\]"
-
 - name: Add student users
   user:
     name: "{{ item.name }}"
