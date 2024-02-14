@@ -73,7 +73,7 @@
   lineinfile:
     dest: /etc/supervisor/supervisord.conf
     state: present
-    line: "user=root"
+    line: user=root
     insertafter: "^\[supervisord\]"
 
 - name: Add student users
