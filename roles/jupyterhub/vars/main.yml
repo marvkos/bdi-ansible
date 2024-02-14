@@ -1,4 +1,6 @@
 nodejs_version: 21.x
+jupyterhub_srv_dir: /srv/jupyterhub
+jupyterhub_log_dir: /var/log/jupyterhub
 student_users:
   - name: student1
-    password: $6$LcweQX34hqcGNIMm$72hLjHJ/hry1MLaPRhyl49A1hqMBWFTH4/FkzRT6KOxs6mWdgej/H7.hDU3BduTNuRI8asFbcDI3pDvevUSHn/
+  - name: student2

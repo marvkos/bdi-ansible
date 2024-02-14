@@ -58,8 +58,65 @@
       - scipy
     state: present
 
+- name: Install supervisor
+  apt:
+    name: supervisor
+    state: present
+
+- name: Make sure supervisord is running
+  service:
+    name: supervisor
+    enabled: yes
+    state: started
+
+- name: Run supervisord as root
+  lineinfile:
+    dest: /etc/supervisor/supervisord.conf
+    state: present
+    line: "user=root"
+    insertafter: "^\[supervisord\]"
+
 - name: Add student users
   user:
     name: "{{ item.name }}"
-    password: "{{ item.password }}"
   with_items: "{{ student_users }}"
+
+- name: Make sure /srv/jupyterhub exists
+  file: 
+    path: "{{ jupyterhub_srv_dir }}/" 
+    state: "{{ item }}" 
+    owner: root 
+    group: root 
+    mode: 0700
+  with_items:
+    - directory
+    - touch
+
+- name: Make sure /var/log/jupyterhub exists
+  file: 
+    path: "{{ jupyterhub_log_dir }}/"
+    state: "{{ item }}" 
+    owner: root 
+    group: root 
+    mode: 0755
+  with_items:
+    - directory
+    - touch
+
+- name: Install supervisor config for jupyterhub
+  template:
+    src: jupyterhub.conf.j2
+    dest: /etc/supervisor/conf.d/jupyterhub.conf 
+    owner: root 
+    group: root 
+    mode: 0600
+
+- name: Load jupyterhub supervisor config
+  supervisorctl: 
+    name: jupyterhub
+    state: present
+
+- name: Restart jupyterhub with supervisor
+  supervisorctl: 
+    name: jupyterhub 
+    state: restarted
