@@ -50,3 +50,10 @@
       - scikit-learn
       - scipy
     state: present
+
+- name: Add SPARK_LOCAL_IP to /etc/profile
+  lineinfile:
+    dest: /etc/profile
+    state: present
+    regexp: "^export SPARK_LOCAL_IP="
+    line: "export SPARK_LOCAL_IP={{ ansible_default_ipv4.address|default(ansible_all_ipv4_addresses[0]) }}"
