@@ -1,0 +1,20 @@
+- name: Install Jupyter pip packages
+  pip:
+    name:
+      - jupyterlab
+      - notebook
+      - jupyterhub
+    state: present
+
+- name: Install scipy pip packages
+  pip:
+    name:
+      - beautifulsoup4
+      - ipympl
+      - ipywidgets
+      - matplotlib
+      - pandas=2.0.3
+      - pyarrow
+      - scikit-learn
+      - scipy
+    state: present
