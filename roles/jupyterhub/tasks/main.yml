@@ -58,6 +58,10 @@
       - scipy
     state: present
 
+- name: Add student group
+  group:
+    name: students
+
 - name: Add student users
   user:
     name: "{{ item.name }}"
