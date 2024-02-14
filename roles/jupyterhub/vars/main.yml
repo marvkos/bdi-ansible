@@ -1,6 +1,7 @@
 nodejs_version: 21.x
 jupyterhub_srv_dir: /srv/jupyterhub
 jupyterhub_log_dir: /var/log/jupyterhub
+supervisord_user: root
 student_users:
   - name: student1
   - name: student2
