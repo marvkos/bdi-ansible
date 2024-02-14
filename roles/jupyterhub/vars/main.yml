@@ -1,4 +1,4 @@
 nodejs_version: 21.x
 student_users:
   - name: student1
-    password: $6$CrbzBlT5okNawQ9j$Hmb/PhfB/BZ2El7NpAWHE21L3sKcJjDavb4J1nZ0xVyO2t7inPP.XQiW/saT.XBKau75/Xzv5d/KSwU1ZTEjp0
+    password: $6$LcweQX34hqcGNIMm$72hLjHJ/hry1MLaPRhyl49A1hqMBWFTH4/FkzRT6KOxs6mWdgej/H7.hDU3BduTNuRI8asFbcDI3pDvevUSHn/
