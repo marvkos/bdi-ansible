@@ -1,5 +1,5 @@
 [program:jupyterhub]
-command=jupyterhub
+command=jupyterhub -f {{ jupyterhub_config_dir }}/jupyterhub_config.py
 redirect_stderr=true
 stdout_logfile={{ jupyterhub_log_dir }}/jupyterhub.log
 autostart=true

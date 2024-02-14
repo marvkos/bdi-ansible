@@ -1,0 +1,4 @@
+- name: install jupyterhub config file
+  template:
+    src: jupyterhub_config.py.j2
+    dest: "{{ jupyterhub_config_dir }}/jupyterhub_config.py"

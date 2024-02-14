@@ -1,0 +1,9 @@
+- name: Load jupyterhub supervisor config
+  supervisorctl: 
+    name: jupyterhub
+    state: present
+
+- name: Restart jupyterhub with supervisor
+  supervisorctl: 
+    name: jupyterhub 
+    state: restarted
