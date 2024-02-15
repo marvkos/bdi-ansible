@@ -1,3 +1,3 @@
-sparkmaster_srv_dir: /srv/sparkworker
-sparkmaster_config_dir: /etc/sparkworker
-sparkmaster_log_dir: /var/log/sparkworker
+sparkworker_srv_dir: /srv/sparkworker
+sparkworker_config_dir: /etc/sparkworker
+sparkworker_log_dir: /var/log/sparkworker
