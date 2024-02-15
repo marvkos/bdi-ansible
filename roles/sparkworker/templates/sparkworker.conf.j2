@@ -1,5 +1,5 @@
 [program:sparkworker]
-command=/bin/spark-class org.apache.spark.deploy.worker.Worker spark://{{ hostvars['sparkmaster1']['ansible_facts']['default_ipv4']['address'] }}:7077
+command=/bin/spark-class org.apache.spark.deploy.worker.Worker spark://172.29.17.138:7077
 redirect_stderr=true
 stdout_logfile={{ sparkworker_log_dir }}/sparkworker.log
 autostart=true
