@@ -2,11 +2,11 @@
 all:
   hosts:
     sparkmaster1:
-      ansible_host: 172.29.17.134
+      ansible_host: 172.29.17.138
     sparkworker1:
-      ansible_host: 172.29.17.135
+      ansible_host: 172.29.17.139
     jupyterhub:
-      ansible_host: 172.29.17.136
+      ansible_host: 172.29.17.140
     basicvm:
       ansible_host: 172.29.17.137
   children:

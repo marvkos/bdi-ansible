@@ -1,0 +1,8 @@
+---
+- name: Install Spark and start as master
+  hosts: sparkmaster
+  become: yes
+  roles:
+    - common
+    - spark
+    - sparkmaster

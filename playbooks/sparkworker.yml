@@ -1,0 +1,8 @@
+---
+- name: Install Spark and start as worker
+  hosts: sparkworkers
+  become: yes
+  roles:
+    - common
+    - spark
+    - sparkworker

@@ -1,9 +1,10 @@
 [program:sparkworker]
-command=start-worker.sh spark://{{ hostvars["sparkmaster1"].ansible_default_ipv4.address }}:7077
+command=/bin/spark-class org.apache.spark.deploy.worker.Worker spark://{{ hostvars["sparkmaster1"].ansible_default_ipv4.address }}:7077
 redirect_stderr=true
 stdout_logfile={{ sparkworker_log_dir }}/sparkworker.log
 autostart=true
-autorestart=false
+autorestart=true
 stopasgroup=true
 user=root
 directory={{ sparkworker_srv_dir }}
+environment=PATH=%(ENV_PATH)s:/opt/spark/bin:/opt/spark/sbin,SPARK_HOME=/opt/spark,PYSPARK_PYTHON=/usr/bin/python3.11,PYSPARK_DRIVER_PYTHON=/usr/bin/python3.11,PYTHONPATH=/opt/spark/python:/opt/spark/python/lib/py4j-0.10.9.7-src.zip,SPARK_LOCAL_IP={{ ansible_default_ipv4.address|default(ansible_all_ipv4_addresses[0]) }}

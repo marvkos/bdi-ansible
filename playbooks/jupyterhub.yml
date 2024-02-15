@@ -1,0 +1,8 @@
+---
+- name: Install Jupyterhub for Spark
+  hosts: jupyterhubs
+  become: yes
+  roles:
+    - common
+    - spark
+    - jupyterhub
