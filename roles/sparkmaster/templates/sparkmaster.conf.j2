@@ -1,5 +1,5 @@
 [program:sparkmaster]
-command=/opt/spark/bin/spark-class org.apache.spark.deploy.master.Master --host %(ENV_SPARK_MASTER_HOST)s --port 7077 --webui-port 8080
+command=/opt/spark/bin/spark-class org.apache.spark.deploy.master.Master --host {{ ansible_default_ipv4.address|default(ansible_all_ipv4_addresses[0]) }} --port 7077 --webui-port 8080
 redirect_stderr=true
 stdout_logfile={{ sparkmaster_log_dir }}/sparkmaster.log
 autostart=true
@@ -7,4 +7,4 @@ autorestart=false
 stopasgroup=true
 user=root
 directory={{ sparkmaster_srv_dir }}
-environment=PATH=%(ENV_PATH)s,SPARK_HOME=%(ENV_SPARK_HOME)s,PYSPARK_PYTHON=%(ENV_PYSPARK_PYTHON)s,PYSPARK_DRIVER_PYTHON=%(ENV_PYSPARK_DRIVER_PYTHON)s,PYTHONPATH=%(ENV_PYTHONPATH)s,SPARK_LOCAL_IP=%(ENV_SAPRK_LOCAL_IP)s,SPARK_MASTER_HOST=%(ENV_SPARK_MASTER_HOST)s
+environment=PATH=%(ENV_PATH)s:/opt/spark/bin:/opt/spark/sbin,SPARK_HOME=/opt/spark,PYSPARK_PYTHON=/usr/bin/python3.11,PYSPARK_DRIVER_PYTHON=/usr/bin/python3.11,PYTHONPATH=/opt/spark/python:/opt/spark/python/lib/py4j-0.10.9.7-src.zip,SPARK_LOCAL_IP={{ ansible_default_ipv4.address|default(ansible_all_ipv4_addresses[0]) }}
