@@ -1,0 +1,9 @@
+- name: Load sparkmaster supervisor config
+  supervisorctl: 
+    name: sparkmaster
+    state: present
+
+- name: Restart sparkmaster with supervisor
+  supervisorctl: 
+    name: sparkmaster 
+    state: restarted

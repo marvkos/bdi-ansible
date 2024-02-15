@@ -1,0 +1,3 @@
+sparkmaster_srv_dir: /srv/sparkmaster
+sparkmaster_config_dir: /etc/sparkmaster
+sparkmaster_log_dir: /var/log/sparkmaster

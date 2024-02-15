@@ -1,4 +1,5 @@
 - name: Add student users
   user:
     name: "{{ item.name }}"
+    password: ""
   with_items: "{{ student_users }}"

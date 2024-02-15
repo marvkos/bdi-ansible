@@ -1,0 +1,6 @@
+- name: Add SPARK_MASTER_HOST to /etc/profile
+  lineinfile:
+    dest: /etc/profile
+    state: present
+    regexp: "^export SPARK_MASTER_HOST="
+    line: "export SPARK_MASTER_HOST={{ ansible_default_ipv4.address|default(ansible_all_ipv4_addresses[0]) }}"

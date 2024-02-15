@@ -1,0 +1,9 @@
+[program:sparkmaster]
+command=start-master.sh
+redirect_stderr=true
+stdout_logfile={{ sparkmaster_log_dir }}/sparkmaster.log
+autostart=true
+autorestart=false
+stopasgroup=true
+user=root
+directory={{ sparkmaster_srv_dir }}

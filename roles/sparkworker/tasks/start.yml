@@ -1,0 +1,9 @@
+- name: Load sparkworker supervisor config
+  supervisorctl: 
+    name: sparkworker
+    state: present
+
+- name: Restart sparkworker with supervisor
+  supervisorctl: 
+    name: sparkworker 
+    state: restarted
