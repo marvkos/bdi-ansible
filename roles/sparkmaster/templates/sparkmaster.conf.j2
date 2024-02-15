@@ -1,5 +1,5 @@
 [program:sparkmaster]
-command=start-master.sh
+command=/opt/spark/sbin/start-master.sh
 redirect_stderr=true
 stdout_logfile={{ sparkmaster_log_dir }}/sparkmaster.log
 autostart=true
