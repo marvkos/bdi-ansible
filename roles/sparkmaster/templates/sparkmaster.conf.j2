@@ -1,5 +1,5 @@
 [program:sparkmaster]
-command=/opt/spark/bin/spark-class org.apache.spark.deploy.master.Master --host {{ ansible_default_ipv4.address|default(ansible_all_ipv4_addresses[0]) }} --port 7077 --webui-port 8080
+command=/opt/spark/bin/spark-class org.apache.spark.deploy.master.Master --host %(ENV_SPARK_MASTER_HOST)s --port 7077 --webui-port 8080
 redirect_stderr=true
 stdout_logfile={{ sparkmaster_log_dir }}/sparkmaster.log
 autostart=true
