@@ -5,7 +5,7 @@ c = get_config()
 c.Spawner.environment = {
 	'PYSPARK_PYTHON': '/usr/bin/python3.11',
 	'PYSPARK_DRIVER_PYTHON': '/usr/bin/python3.11',
-	'SPARK_LOCAL_IP': {{ ansible_default_ipv4.address|default(ansible_all_ipv4_addresses[0]) }}
+	'SPARK_LOCAL_IP': '{{ ansible_default_ipv4.address|default(ansible_all_ipv4_addresses[0]) }}''
 }
 
 c.Authenticator.whitelist = {
