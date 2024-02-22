@@ -14,9 +14,9 @@
     name: openjdk-17-jdk
     state: present
 
-- name: Install Scala
+- name: Install Scala 2.12
   apt:
-    name: scala
+    deb: https://downloads.lightbend.com/scala/2.12.2/scala-2.12.2.deb
     state: present
 
 - name: Install software-properties-common (required for adding PPAs)

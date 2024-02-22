@@ -1,0 +1,23 @@
+- name: Check Spark files existence
+  stat:
+    path: /opt/kafka
+  register: kafka_check
+
+- name: Download Kafka files
+  get_url:
+    url: https://downloads.apache.org/kafka/3.6.1/kafka_2.12-3.6.1.tgz
+    dest: /opt
+    timeout: 300
+  when: not kafka_check.stat.exists
+
+- name: Extract Kafka files
+  unarchive:
+    src: /opt/kafka_2.12-3.6.1.tgz
+    dest: /opt/
+    remote_src: yes
+  when: not kafka_check.stat.exists
+
+- name: Rename directory
+  command: mv /opt/kafka_2.12-3.6.1 /opt/kafka
+  when: not kafka_check.stat.exists
+
