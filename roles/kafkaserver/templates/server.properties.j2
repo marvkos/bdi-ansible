@@ -46,8 +46,7 @@ inter.broker.listener.name=PLAINTEXT
 
 # Listener name, hostname and port the broker will advertise to clients.
 # If not set, it uses the value for "listeners".
-advertised.listeners=PLAINTEXT://{{ ansible_default_ipv4.address|default(ansible_all_ipv4_addresses[0]) }}
-:9092
+advertised.listeners=PLAINTEXT://{{ ansible_default_ipv4.address|default(ansible_all_ipv4_addresses[0]) }}:9092
 
 # A comma-separated list of the names of the listeners used by the controller.
 # If no explicit mapping set in `listener.security.protocol.map`, default will be using PLAINTEXT protocol
