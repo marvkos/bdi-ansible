@@ -36,3 +36,10 @@
       - pyarrow>=4.0.0
       - numpy>=1.15
     state: present
+
+- name: Download Streaming + Kafka maven dependency
+  maven_artifact:
+    group_id: org.apache.spark
+    artifact_id: spark-sql-kafka-0-10_2.12
+    version: 3.5.1
+    dest: /opt/spark/jars/spark-sql-kafka-0-10_2.12.jar
