@@ -1,4 +1,4 @@
-[program:kakfaserver]
+[program:kafkaserver]
 command=/opt/kafka/bin/kafka-server-start.sh /opt/kafka/config/kraft/server.properties
 redirect_stderr=true
 stdout_logfile={{ kafkaserver_log_dir }}/kafkaserver.log
