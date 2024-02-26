@@ -1,0 +1,4 @@
+- include_tasks: directories.yml
+- include_tasks: kafkaserverconfig.yml
+- include_tasks: supervisor.yml
+- include_tasks: start.yml

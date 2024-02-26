@@ -1,4 +1,4 @@
-- name: Check Spark files existence
+- name: Check Kafka files existence
   stat:
     path: /opt/kafka
   register: kafka_check
