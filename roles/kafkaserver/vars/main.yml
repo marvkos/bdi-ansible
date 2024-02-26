@@ -1,0 +1,3 @@
+kafkaserver_srv_dir: /srv/kafkaserver
+kafkaserver_config_dir: /etc/kafkaserver
+kafkaserver_log_dir: /var/log/kafkaserver

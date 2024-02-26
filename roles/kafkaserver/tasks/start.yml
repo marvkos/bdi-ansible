@@ -1,0 +1,9 @@
+- name: Load kafkaserver supervisor config
+  supervisorctl: 
+    name: kafkaserver
+    state: present
+
+- name: Restart kafkaserver with supervisor
+  supervisorctl: 
+    name: kafkaserver 
+    state: restarted

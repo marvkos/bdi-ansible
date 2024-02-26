@@ -1,0 +1,9 @@
+[program:kakfaserver]
+command=/opt/kafka/bin/kafka-server-start.sh /opt/kafka/config/kraft/server.properties
+redirect_stderr=true
+stdout_logfile={{ kafkaserver_log_dir }}/kafkaserver.log
+autostart=true
+autorestart=true
+stopasgroup=true
+user=root
+directory={{ kafkaserver_srv_dir }}

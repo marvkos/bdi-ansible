@@ -1,0 +1,5 @@
+- name: Install config for kafkaserver
+  template:
+    src: server.properties.j2
+    dest: /opt/kafka/config/kraft/server.properties
+

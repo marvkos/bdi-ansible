@@ -1,0 +1,14 @@
+- name: Make sure srv dir exists
+  file: 
+    path: "{{ kafkaserver_srv_dir }}/" 
+    state: directory
+
+- name: Make sure config dir exists
+  file: 
+    path: "{{ kafkaserver_config_dir }}/" 
+    state: directory 
+
+- name: Make sure log dir exists
+  file: 
+    path: "{{ kafkaserver_log_dir }}/"
+    state: directory 
