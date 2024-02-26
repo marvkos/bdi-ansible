@@ -46,3 +46,18 @@
   get_url:
     url: https://repo1.maven.org/maven2/org/apache/commons/commons-pool2/2.11.1/commons-pool2-2.11.1.jar
     dest: /opt/spark/jars/
+
+- name: Download JSR305 Annotations maven dependency
+  get_url:
+    url: https://repo1.maven.org/maven2/com/google/code/findbugs/jsr305/3.0.0/jsr305-3.0.0.jar
+    dest: /opt/spark/jars/
+
+- name: Download Apache Kafka Clients maven dependency
+  get_url:
+    url: https://repo1.maven.org/maven2/org/apache/kafka/kafka-clients/3.4.1/kafka-clients-3.4.1.jar
+    dest: /opt/spark/jars/
+
+- name: Download Kafka 0.10+ Token Provider maven dependency
+  get_url:
+    url: https://repo1.maven.org/maven2/org/apache/spark/spark-token-provider-kafka-0-10_2.12/3.5.0/spark-token-provider-kafka-0-10_2.12-3.5.0.jar
+    dest: /opt/spark/jars/
