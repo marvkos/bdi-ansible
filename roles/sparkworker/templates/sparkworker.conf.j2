@@ -1,5 +1,5 @@
 [program:sparkworker]
-command=/opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://172.29.17.138:7077
+command=/opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://172.29.16.102:7077
 redirect_stderr=true
 stdout_logfile={{ sparkworker_log_dir }}/sparkworker.log
 autostart=true
